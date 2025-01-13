@@ -113,13 +113,13 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "ISereino"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "一个暖炉，一杯水，一本书，时光在淅沥的雨声中慢下来."
   location         : "Somewhere"
   email            :
   links:
-    - label: "Email"
+    - label: "2405533703@qq.com"
       icon: "fas fa-fw fa-envelope-square"
       # url: "mailto:your.name@email.com"
     - label: "Website"
