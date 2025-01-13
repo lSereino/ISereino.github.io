@@ -114,7 +114,7 @@ analytics:
 # Site Author
 author:
   name             : "ISereino"
-  avatar           : "assets/images/【哲风壁纸】暗黑御姐风-酷酷的少女.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "assets/images/picture.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "时光在淅沥的雨声中慢下来."
   location         : "中国-河北"
   email            : "暂无邮箱"
