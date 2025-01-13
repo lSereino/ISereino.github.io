@@ -1,13 +1,16 @@
-# [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/)
+# Blog
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/LICENSE)
 [![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D%203.7-blue.svg)](https://jekyllrb.com/)
 
-Minimal Mistakes is a flexible two-column Jekyll theme, perfect for building personal sites, blogs, and portfolios. As the name implies, styling is purposely minimalistic to be enhanced and customized by you :smile:.
+这是一段介绍 :smile:.
 
-:sparkles: See what's new in the [CHANGELOG](CHANGELOG.md).
+:sparkles: 最新更新 [CHANGELOG](CHANGELOG.md).
 
 **Note:** The theme uses the [jekyll-include-cache](https://github.com/benbalter/jekyll-include-cache) plugin which will need to be installed in your `Gemfile` and must be retained in the `plugins` array of `_config.yml`. Otherwise you'll encounter `Unknown tag 'include_cached'` errors at build.
+
+该主题使用了jekyll - include - cache插件，你需要将其安装到你的Gemfile中，并且必须保留在_config.yml的plugins数组里。否则，在构建过程中你将会遇到 “未知标签‘include_cached’” 的错误。
+
 
 [![Minimal Mistakes live preview][2]][1]
 
@@ -29,9 +32,9 @@ Minimal Mistakes is a flexible two-column Jekyll theme, perfect for building per
 - [Google Analytics](https://www.google.com/analytics/) support.
 - UI localized text in English (default), Arabic (عربي), Brazilian Portuguese (Português brasileiro), Bulgarian, Catalan, Chinese, Czech, Danish, Dutch, Finnish, French (Français), German (Deutsch), Greek, Hebrew, Hindi (हिंदी), Hungarian, Indonesian, Irish (Gaeilge), Italian (Italiano), Japanese, Kiswahili, Korean, Malayalam, Myanmar (Burmese), Nepali (Nepalese), Norwegian (Norsk), Persian (فارسی), Polish, Punjabi (ਪੰਜਾਬੀ), Romanian, Russian, Slovak, Spanish (Español), Swedish, Thai, Turkish (Türkçe), Ukrainian (Українська) and Vietnamese.
 
-## Skins (color variations)
+## 皮肤类型
 
-This theme comes in nine different skins (in addition to the default one).
+一共包含九种主题，默认为default形式。
 
 | `air` | `contrast` | `dark` |
 | --- | --- | --- |
