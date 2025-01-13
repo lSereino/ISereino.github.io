@@ -15,11 +15,11 @@
 minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-zh"
+locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Always believe that something good happens!"
+title                    : "Blog"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : "永远相信有美好的事情发生."# site tagline that appears below site title in masthead
 name                     : "ISereino"
 description              : "永远相信有美好的事情发生."
 url                      : https://ISereino.github.io# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
