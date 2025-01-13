@@ -25,7 +25,7 @@ description              : "one in one,step by step"
 url                      : https://ISereino.github.io# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "assets/images/【哲风壁纸】暗黑御姐风-酷酷的少女.png"# path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "assets/images/LOGO.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
@@ -114,10 +114,10 @@ analytics:
 # Site Author
 author:
   name             : "ISereino"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "一个暖炉，一杯水，一本书，时光在淅沥的雨声中慢下来."
-  location         : "Somewhere"
-  email            :
+  avatar           : "assets/images/【哲风壁纸】暗黑御姐风-酷酷的少女.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "时光在淅沥的雨声中慢下来."
+  location         : "中国-河北"
+  email            : "暂无邮箱"
   links:
     - label: "2405533703@qq.com"
       icon: "fas fa-fw fa-envelope-square"
