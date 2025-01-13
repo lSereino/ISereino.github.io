@@ -21,7 +21,7 @@ title                    : "Blog"
 title_separator          : "-"
 subtitle                 : "永远相信有美好的事情发生."# site tagline that appears below site title in masthead
 name                     : "ISereino"
-description              : "永远相信有美好的事情发生."
+description              : "one in one,step by step"
 url                      : https://ISereino.github.io# the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
