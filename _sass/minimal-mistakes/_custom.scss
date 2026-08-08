@@ -19,7 +19,7 @@ body {
 }
 
 /* ==========================================================================
-   Masthead - 左Logo / 中导航 / 右搜索
+   Masthead - 与下方内容使用相同的三栏网格，完美对齐
    ========================================================================== */
 
 .masthead {
@@ -31,6 +31,7 @@ body {
   .masthead__inner-wrap {
     padding: 0.6em 1.5em !important;
     background: transparent !important;
+    max-width: none !important;
   }
 
   .masthead__menu {
@@ -38,16 +39,19 @@ body {
   }
 
   .greedy-nav {
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: 240px 1fr 240px !important;
+    gap: 1.2em !important;
     align-items: center !important;
     width: 100% !important;
-    gap: 0 !important;
     background: transparent !important;
   }
 
   .site-logo {
-    flex-shrink: 0 !important;
-    margin-inline-end: 0.5em !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    margin: 0 !important;
   }
 
   .site-logo img {
@@ -56,11 +60,13 @@ body {
   }
 
   .site-title {
-    flex-shrink: 0 !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    margin-inline-start: 2.3em !important;
     font-size: 1em !important;
     font-weight: 700 !important;
     color: #2d3436 !important;
-    margin-inline-end: 0 !important;
     white-space: nowrap;
 
     a {
@@ -74,10 +80,11 @@ body {
   }
 
   .visible-links {
-    flex: 1 !important;
+    grid-column: 2 !important;
     display: flex !important;
-    background: transparent !important;
     justify-content: center !important;
+    align-items: center !important;
+    background: transparent !important;
     visibility: visible !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -103,13 +110,10 @@ body {
     }
   }
 
-  .hidden-links {
-    display: none !important;
-  }
-
   .search__toggle {
-    flex-shrink: 0 !important;
-    margin-inline-start: auto !important;
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
     color: #636e72 !important;
     background: #f5f6fa !important;
     border-radius: 8px !important;
@@ -133,13 +137,19 @@ body {
   }
 
   .greedy-nav__toggle {
-    flex-shrink: 0 !important;
-    margin-inline-start: 0.5em !important;
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    margin-inline-end: 3em !important;
     color: #636e72 !important;
   }
 
   .navicon {
     color: #636e72 !important;
+  }
+
+  .hidden-links {
+    display: none !important;
   }
 }
 
@@ -175,14 +185,6 @@ html, body {
   max-width: 100% !important;
   padding-inline: 1.5em !important;
   margin-inline: auto !important;
-
-  @include breakpoint($large) {
-    padding-inline: 2em !important;
-  }
-
-  @include breakpoint($x-large) {
-    padding-inline: 2.5em !important;
-  }
 }
 
 .archive {
@@ -858,6 +860,15 @@ blockquote {
   .home-sidebar--right {
     display: none;
   }
+
+  .masthead .greedy-nav {
+    grid-template-columns: 220px 1fr !important;
+  }
+
+  .masthead .search__toggle,
+  .masthead .greedy-nav__toggle {
+    grid-column: 2 !important;
+  }
 }
 
 @include breakpoint(max-width $medium) {
@@ -867,6 +878,32 @@ blockquote {
 
   .home-main {
     order: 1;
+  }
+
+  .masthead .greedy-nav {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 0.5em !important;
+  }
+
+  .masthead .site-logo,
+  .masthead .site-title {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .masthead .site-title {
+    margin-inline-start: 2.3em !important;
+  }
+
+  .masthead .visible-links {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    justify-content: flex-start !important;
+  }
+
+  .masthead .search__toggle {
+    display: none !important;
   }
 
   .featured-carousel {
