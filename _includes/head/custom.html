@@ -1,19 +1,24 @@
 <!-- start custom head snippets -->
-
-<!-- insert favicons. use https://realfavicongenerator.net/ -->
-
-<!-- 文章详情页布局优化：限制内容宽度，提升阅读体验 -->
+<!-- 文章详情页居中布局优化 -->
 <style>
-  /* 针对 single 布局（文章页）的核心元素统一设置最大宽度 */
-  .layout--single .page__content,   /* 正文内容区 */
-  .layout--single .page__title,    /* 文章标题 */
-  .layout--single .page__meta,     /* 元信息（时间、标签、分类） */
-  .layout--single .page__share,    /* 社交分享按钮 */
-  .layout--single .post-pagination /* 上一页/下一页导航 */ {
-  max-width: 1200px !important;      /* 最大宽度 1200px，超出则居中 */
-  margin-inline: auto !important;    /* 水平方向自动外边距，实现居中 */
-  padding-inline: 1.5em !important;  /* 左右各 24px 内边距，避免文字贴边 */
-}
+  .layout--single .page__content,
+  .layout--single .page__title,
+  .layout--single .page__meta,
+  .layout--single .page__share,
+  .layout--single .post-pagination {
+    max-width: 1200px !important;
+    margin-inline: auto !important;
+    padding-inline: 1.5em !important;
+  }
+  /* 手机端自适应边距 */
+  @media screen and (max-width: 768px) {
+    .layout--single .page__content,
+    .layout--single .page__title,
+    .layout--single .page__meta,
+    .layout--single .page__share,
+    .layout--single .post-pagination {
+      padding-inline: 1rem !important;
+    }
+  }
 </style>
-
 <!-- end custom head snippets -->
