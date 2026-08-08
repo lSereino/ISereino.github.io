@@ -19,17 +19,17 @@ body {
 }
 
 /* ==========================================================================
-   Masthead 修复 - 全局导航
+   Masthead - 现代化导航设计
    ========================================================================== */
 
 .masthead {
-  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%) !important;
-  border-bottom: none !important;
-  box-shadow: 0 2px 10px rgba(108, 92, 231, 0.3) !important;
+  background: #fff !important;
+  border-bottom: 1px solid #eee !important;
+  box-shadow: none !important;
   z-index: 20 !important;
 
   .masthead__inner-wrap {
-    padding: 0.4em 1.5em !important;
+    padding: 0.6em 2em !important;
     background: transparent !important;
   }
 
@@ -37,36 +37,53 @@ body {
     background: transparent !important;
   }
 
-  .site-title,
-  .site-subtitle {
-    color: #fff !important;
+  .site-logo img {
+    max-height: 32px !important;
+    border-radius: 6px;
   }
 
   .site-title {
     position: relative !important;
     z-index: 10 !important;
-    margin-inline-end: 1em !important;
+    margin-inline-end: 2em !important;
     flex-shrink: 0 !important;
     white-space: nowrap;
-    font-size: 1.05em !important;
+    font-size: 1em !important;
+    font-weight: 700 !important;
+    color: #2d3436 !important;
+
+    a {
+      color: #2d3436 !important;
+      text-decoration: none !important;
+    }
   }
 
   .site-subtitle {
-    font-size: 0.72em !important;
-    opacity: 0.9;
+    display: none !important;
   }
 
-  .masthead__menu-item a {
-    color: #fff !important;
-    font-size: 0.85em !important;
-  }
+  .masthead__menu-item {
+    a {
+      color: #636e72 !important;
+      font-size: 0.88em !important;
+      font-weight: 500;
+      position: relative;
+      padding: 0.3em 0 !important;
+      margin-inline: 0.8em !important;
+      transition: color 0.2s ease;
 
-  .masthead__menu-item a:hover {
-    color: rgba(255, 255, 255, 0.8) !important;
+      &:hover {
+        color: #6c5ce7 !important;
+      }
+    }
+
+    &--lg a {
+      padding-inline: 0 !important;
+    }
   }
 
   .navicon {
-    color: #fff !important;
+    color: #636e72 !important;
   }
 
   .greedy-nav {
@@ -76,16 +93,18 @@ body {
   }
 
   .visible-links {
-    flex: 0 0 auto !important;
+    flex: 1 !important;
     background: transparent !important;
+    justify-content: center !important;
 
     li a {
-      padding: 0.35em 0.8em !important;
+      padding: 0.3em 0.8em !important;
       border-radius: 6px;
-      transition: background 0.25s ease;
+      transition: all 0.2s ease;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(108, 92, 231, 0.08);
+        color: #6c5ce7 !important;
       }
     }
   }
@@ -93,33 +112,33 @@ body {
   .search__toggle {
     position: relative !important;
     z-index: 30 !important;
-    margin-inline-start: 0.8em !important;
-    color: #fff !important;
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-radius: 50% !important;
-    width: 32px !important;
-    height: 32px !important;
+    margin-inline-start: 0.5em !important;
+    color: #636e72 !important;
+    background: #f5f6fa !important;
+    border-radius: 8px !important;
+    width: 34px !important;
+    height: 34px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
     transition: all 0.25s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid transparent !important;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.3) !important;
-      transform: scale(1.1);
+      background: rgba(108, 92, 231, 0.1) !important;
+      color: #6c5ce7 !important;
     }
 
     i {
-      color: #fff !important;
+      color: #636e72 !important;
       font-size: 0.85em;
     }
   }
 
   .greedy-nav__toggle {
     margin-inline-start: 0.5em !important;
-    color: #fff !important;
+    color: #636e72 !important;
   }
 }
 
@@ -365,11 +384,11 @@ html, body {
 .featured-carousel {
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.2);
+  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.15);
 
   .carousel-item {
     position: relative;
-    min-height: 160px;
+    min-height: 140px;
     background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
     display: flex;
     align-items: center;
@@ -385,7 +404,7 @@ html, body {
   .carousel-label {
     display: inline-block;
     padding: 0.25em 0.7em;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.6em;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     font-size: 0.72em;
@@ -393,8 +412,8 @@ html, body {
   }
 
   .carousel-title {
-    margin: 0 0 0.5em;
-    font-size: 1.2em;
+    margin: 0 0 0.4em;
+    font-size: 1.1em;
     font-weight: 700;
     color: #fff;
   }
@@ -532,24 +551,27 @@ html, body {
 }
 
 /* ==========================================================================
-   文章卡片 - 扁平化卡片背景
+   文章卡片 - 扁平列表 仅标题+时间
    ========================================================================== */
 
 .list__item {
   width: 100% !important;
-  margin-bottom: 0.8em !important;
+  margin-bottom: 0.6em !important;
   border-bottom: none;
 }
 
 .archive__item {
-  display: block !important;
-  padding: 1.2em 1.5em !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.9em 1.4em !important;
   margin-bottom: 0 !important;
   background: #fff !important;
   border: 1px solid #eee !important;
-  border-radius: 12px !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
-  transition: all 0.25s ease;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
 
@@ -558,17 +580,21 @@ html, body {
   }
 
   &:hover {
-    border-color: rgba(108, 92, 231, 0.25) !important;
-    box-shadow: 0 4px 16px rgba(108, 92, 231, 0.1) !important;
-    transform: translateY(-2px);
+    border-color: rgba(108, 92, 231, 0.35) !important;
+    box-shadow: 0 2px 8px rgba(108, 92, 231, 0.08) !important;
+    transform: translateY(-1px);
   }
 }
 
 .archive__item-title {
-  font-size: 1.05em !important;
-  font-weight: 600;
-  margin: 0 0 0.3em !important;
-  line-height: 1.4;
+  font-size: 0.92em !important;
+  font-weight: 500;
+  margin: 0 !important;
+  line-height: 1.5;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   a {
     color: #2d3436 !important;
@@ -582,24 +608,31 @@ html, body {
 }
 
 .archive__item-excerpt {
-  color: #888;
-  font-size: 0.82em;
-  line-height: 1.6;
-  margin: 0.3em 0 0;
+  display: none !important;
 }
 
 .list__item .page__meta {
-  font-size: 0.78em !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0;
+  margin: 0 !important;
+  font-size: 0.8em !important;
   color: #b2bec3;
-  margin: 0 0 0.4em !important;
+  white-space: nowrap;
 
-  .page__meta-date,
+  .page__meta-sep,
   .page__meta-readtime {
+    display: none !important;
+  }
+
+  .page__meta-date {
     color: #b2bec3;
+    display: inline-flex;
+    align-items: center;
   }
 
   i {
-    color: #b2bec3;
+    display: none !important;
   }
 }
 
@@ -713,10 +746,11 @@ html, body {
    ========================================================================== */
 
 .page__footer {
-  background: linear-gradient(135deg, #2d3436 0%, #353b48 100%) !important;
-  color: #dfe6e9 !important;
+  background: #fff !important;
+  color: #b2bec3 !important;
+  border-top: 1px solid #eee !important;
   padding: 0.8em 0 !important;
-  margin-top: 1em !important;
+  margin-top: 1.5em !important;
 
   footer {
     padding: 0.3em 1em !important;
@@ -762,7 +796,7 @@ html, body {
   }
 
   a {
-    color: #a29bfe !important;
+    color: #6c5ce7 !important;
   }
 }
 
