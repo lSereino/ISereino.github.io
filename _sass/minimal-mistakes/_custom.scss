@@ -45,7 +45,7 @@ body {
   .site-title {
     position: relative !important;
     z-index: 10 !important;
-    margin-inline-end: 2em !important;
+    margin-inline-end: 1em !important;
     flex-shrink: 0 !important;
     white-space: nowrap;
     font-size: 1em !important;
@@ -88,14 +88,14 @@ body {
 
   .greedy-nav {
     align-items: center !important;
-    gap: 0.5em !important;
+    gap: 0 !important;
     background: transparent !important;
   }
 
   .visible-links {
-    flex: 1 !important;
+    flex: 0 0 auto !important;
     background: transparent !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
 
     li a {
       padding: 0.3em 0.8em !important;
@@ -112,7 +112,7 @@ body {
   .search__toggle {
     position: relative !important;
     z-index: 30 !important;
-    margin-inline-start: 0.5em !important;
+    margin-inline-start: auto !important;
     color: #636e72 !important;
     background: #f5f6fa !important;
     border-radius: 8px !important;
