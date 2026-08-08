@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Vibrant skin - 现代活力主题
+   ========================================================================== */
+
+/* Colors */
+$background-color: #fafafa !default;
+$text-color: #2d3436 !default;
+$muted-text-color: #636e72 !default;
+$primary-color: #6c5ce7 !default;
+$success-color: #00b894 !default;
+$warning-color: #fdcb6e !default;
+$danger-color: #e17055 !default;
+$info-color: #74b9ff !default;
+$border-color: #dfe6e9 !default;
+$code-background-color: #f1f2f6 !default;
+$code-background-color-dark: #dfe6e9 !default;
+$form-background-color: #f1f2f6 !default;
+$footer-background-color: #2d3436 !default;
+$link-color: #6c5ce7 !default;
+$link-color-hover: #a29bfe !default;
+$link-color-visited: #5a4bd1 !default;
+$masthead-link-color: #2d3436 !default;
+$masthead-link-color-hover: #6c5ce7 !default;
+$navicon-link-color-hover: #dfe6e9 !default;
+
+/* Gradient colors */
+$gradient-start: #6c5ce7 !default;
+$gradient-end: #a29bfe !default;
+
+/* vibrant syntax highlighting (base16) */
+$base00: #2d3436 !default;
+$base01: #353b48 !default;
+$base02: #485460 !default;
+$base03: #636e72 !default;
+$base04: #b2bec3 !default;
+$base05: #dfe6e9 !default;
+$base06: #f1f2f6 !default;
+$base07: #ffffff !default;
+$base08: #e17055 !default;
+$base09: #fdcb6e !default;
+$base0a: #00b894 !default;
+$base0b: #55efc4 !default;
+$base0c: #74b9ff !default;
+$base0d: #a29bfe !default;
+$base0e: #fd79a8 !default;
+$base0f: #fab1a0 !default;
+
+/* Author profile social icons */
+.author__urls.social-icons i,
+.author__urls.social-icons .svg-inline--fa,
+.page__footer-follow .social-icons i,
+.page__footer-follow .social-icons .svg-inline--fa {
+  color: inherit;
+}
+
+/* Pagination */
+.pagination--pager {
+  color: #fff;
+  background-color: $primary-color;
+  border-color: transparent;
+
+  &:visited {
+    color: #fff;
+  }
+}
+
+/* Search box */
+.ais-search-box .ais-search-box--input {
+  background-color: $form-background-color;
+}
