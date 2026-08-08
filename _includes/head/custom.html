@@ -1,31 +1,45 @@
 <!-- start custom head snippets -->
 <style>
-/* 锁定文章最外层大容器，左右padding严格相等，根治天生不对称 */
-.layout--single .page__container {
+/* 拉满优先级，直接锤掉文章主体原生不对称padding */
+body.layout--single article.page {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding-left: 1.5em !important;
-  padding-right: 1.5em !important;
   box-sizing: border-box !important;
 }
-/* 内层标题、正文、标签等取消自身左右边距，只依靠外层统一控制边距 */
+
+/* 彻底干掉侧边栏容器，杜绝它占用布局空间 */
+.layout--single .sidebar {
+  display: none !important;
+  width: 0 !important;
+  padding: 0 !important;
+}
+
+/* 面包屑导航也跟着统一边距，和正文对齐 */
+.layout--single .breadcrumbs {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  box-sizing: border-box !important;
+}
+
+/* 标题、元数据、正文、分享按钮全部贴合外层边距，不再叠加额外padding */
 .layout--single .page__title,
 .layout--single .page__meta,
 .layout--single .page__content,
 .layout--single .page__share,
 .layout--single .post-pagination {
-  max-width: 100% !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
-  margin-inline: auto !important;
+  width: 100% !important;
 }
-/* 彻底关闭侧边栏布局占位，删掉右侧多余预留空白 */
-.layout--single .sidebar {
-  display: none !important;
-}
-/* 手机端自动缩小两边边距 */
+
+/* 手机端自适应缩小边距 */
 @media screen and (max-width: 768px) {
-  .layout--single .page__container {
+  body.layout--single article.page,
+  .layout--single .breadcrumbs {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
