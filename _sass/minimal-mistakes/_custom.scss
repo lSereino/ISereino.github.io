@@ -19,7 +19,17 @@ body {
 }
 
 /* ==========================================================================
-   Masthead - 与下方内容使用相同的三栏网格，完美对齐
+   全局网格变量 - 顶栏和内容区共用，保证绝对对齐
+   ========================================================================== */
+
+:root {
+  --sidebar-w: 240px;
+  --grid-gap: 1.2em;
+  --page-pad: 1.5em;
+}
+
+/* ==========================================================================
+   Masthead - 与内容区共用同一套网格变量
    ========================================================================== */
 
 .masthead {
@@ -29,7 +39,7 @@ body {
   z-index: 20 !important;
 
   .masthead__inner-wrap {
-    padding: 0.6em 1.5em !important;
+    padding: 0.6em var(--page-pad) !important;
     background: transparent !important;
     max-width: none !important;
   }
@@ -40,8 +50,8 @@ body {
 
   .greedy-nav {
     display: grid !important;
-    grid-template-columns: 240px 1fr 240px !important;
-    gap: 1.2em !important;
+    grid-template-columns: var(--sidebar-w) 1fr var(--sidebar-w) !important;
+    gap: var(--grid-gap) !important;
     align-items: center !important;
     width: 100% !important;
     background: transparent !important;
@@ -154,7 +164,7 @@ body {
 }
 
 /* ==========================================================================
-   三栏网格布局 - 左栏 / 中栏 / 右栏
+   三栏网格布局 - 与顶栏共用变量
    ========================================================================== */
 
 html, body {
@@ -170,10 +180,13 @@ html, body {
 .page {
   width: 100% !important;
   float: none !important;
-  padding-inline-end: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 
   .page__inner-wrap {
     width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 }
 
@@ -183,15 +196,15 @@ html, body {
 
 #main {
   max-width: 100% !important;
-  padding-inline: 1.5em !important;
-  margin-inline: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .archive {
   float: none !important;
   width: 100% !important;
-  padding-inline-end: 0 !important;
-  margin-inline: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
   max-width: 100% !important;
 }
 
@@ -203,17 +216,10 @@ html, body {
 
 .home-grid {
   display: grid;
-  grid-template-columns: 240px 1fr 240px;
-  gap: 1.2em;
-  margin-top: 0.8em;
-
-  @include breakpoint(max-width $large - 1px) {
-    grid-template-columns: 220px 1fr;
-  }
-
-  @include breakpoint(max-width $medium) {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: var(--sidebar-w) 1fr var(--sidebar-w);
+  gap: var(--grid-gap);
+  margin: 0 var(--page-pad);
+  padding: 0;
 }
 
 /* --- 侧边栏通用 --- */
@@ -861,6 +867,10 @@ blockquote {
     display: none;
   }
 
+  .home-grid {
+    grid-template-columns: 220px 1fr !important;
+  }
+
   .masthead .greedy-nav {
     grid-template-columns: 220px 1fr !important;
   }
@@ -878,6 +888,10 @@ blockquote {
 
   .home-main {
     order: 1;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr !important;
   }
 
   .masthead .greedy-nav {
