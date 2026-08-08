@@ -746,9 +746,8 @@ html, body {
    ========================================================================== */
 
 .page__footer {
-  background: #fff !important;
-  color: #b2bec3 !important;
-  border-top: 1px solid #eee !important;
+  background: linear-gradient(135deg, #2d3436 0%, #353b48 100%) !important;
+  color: #dfe6e9 !important;
   padding: 0.8em 0 !important;
   margin-top: 1.5em !important;
 
@@ -796,7 +795,7 @@ html, body {
   }
 
   a {
-    color: #6c5ce7 !important;
+    color: #a29bfe !important;
   }
 }
 
