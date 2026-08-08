@@ -1,43 +1,27 @@
 /* ==========================================================================
-   Custom Enhancements - 字体缩小 + UI 美化
+   Custom UI Enhancements - 加载在所有默认样式之后
    ========================================================================== */
 
-/* --- 字体缩小（强制覆盖） --- */
-$doc-font-size: 14px;
-$doc-font-size-medium: 15px;
-$doc-font-size-large: 16px;
-$doc-font-size-x-large: 17px;
-
-/* type scale - 整体缩小 */
-$type-size-1: 2em;
-$type-size-2: 1.7em;
-$type-size-3: 1.4em;
-$type-size-4: 1.15em;
-$type-size-5: 0.95em;
-$type-size-6: 0.8em;
-$type-size-7: 0.72em;
-$type-size-8: 0.65em;
-
-/* headline scale - 标题缩小 */
-$h-size-1: 1.4em;
-$h-size-2: 1.2em;
-$h-size-3: 1.1em;
-$h-size-4: 1.05em;
-$h-size-5: 1.02em;
-$h-size-6: 0.98em;
-
-/* --- 全局样式优化 --- */
+/* --- 平滑滚动 + 字体渲染 --- */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background: rgba(108, 92, 231, 0.2);
+  color: #2d3436;
+}
+
 /* --- Masthead 渐变导航栏 --- */
 .masthead {
-  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
-  border-bottom: none;
-  box-shadow: 0 2px 10px rgba(108, 92, 231, 0.3);
+  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%) !important;
+  border-bottom: none !important;
+  box-shadow: 0 2px 10px rgba(108, 92, 231, 0.3) !important;
 
   .site-title,
   .site-subtitle,
@@ -57,13 +41,13 @@ body {
 /* --- 侧边栏美化 --- */
 .sidebar {
   .author__avatar img {
-    border: 3px solid #6c5ce7;
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.25);
+    border: 3px solid #6c5ce7 !important;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.25) !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+      box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4) !important;
     }
   }
 
@@ -92,20 +76,20 @@ body {
   }
 }
 
-/* --- 文章卡片美化 --- */
+/* --- 文章卡片 --- */
 .archive__item {
-  padding: 1.2em 1.4em;
-  margin-bottom: 1.2em;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(108, 92, 231, 0.08);
+  padding: 1.2em 1.4em !important;
+  margin-bottom: 1.2em !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(108, 92, 231, 0.08) !important;
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0 8px 30px rgba(108, 92, 231, 0.12);
+    box-shadow: 0 8px 30px rgba(108, 92, 231, 0.12) !important;
     transform: translateY(-2px);
-    border-color: rgba(108, 92, 231, 0.25);
+    border-color: rgba(108, 92, 231, 0.25) !important;
   }
 }
 
@@ -136,7 +120,7 @@ body {
 
 /* --- 归档副标题 --- */
 .archive__subtitle {
-  font-size: 0.9em;
+  font-size: 0.9em !important;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -173,15 +157,30 @@ body {
   }
 }
 
-/* --- 按钮美化 --- */
+/* --- 标签计数徽章 --- */
+.taxonomy__count {
+  display: inline-block;
+  min-width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff !important;
+  font-size: 0.7em;
+  font-weight: 600;
+  padding: 0 0.5em;
+}
+
+/* --- 按钮 --- */
 .btn {
-  border-radius: 8px;
+  border-radius: 8px !important;
   font-weight: 600;
   transition: all 0.25s ease;
 
   &--primary {
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-    border: none;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe) !important;
+    border: none !important;
     box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
 
     &:hover {
@@ -193,7 +192,7 @@ body {
 
 /* --- 分页 --- */
 .pagination--pager {
-  border-radius: 8px;
+  border-radius: 8px !important;
   box-shadow: 0 2px 8px rgba(108, 92, 231, 0.25);
   transition: all 0.25s ease;
 
@@ -205,16 +204,16 @@ body {
 
 /* --- 页脚 --- */
 .page__footer {
-  background: linear-gradient(135deg, #2d3436 0%, #353b48 100%);
-  color: #dfe6e9;
+  background: linear-gradient(135deg, #2d3436 0%, #353b48 100%) !important;
+  color: #dfe6e9 !important;
   padding: 2em 0;
 
   a {
-    color: #a29bfe;
+    color: #a29bfe !important;
   }
 }
 
-/* --- 目录/面包屑 --- */
+/* --- 面包屑 --- */
 .breadcrumbs {
   background: #fff;
   padding: 0.6em 1em;
@@ -244,7 +243,7 @@ body {
 /* --- 代码块 --- */
 pre,
 code {
-  border-radius: 8px;
+  border-radius: 8px !important;
   font-size: 0.85em;
 }
 
@@ -257,35 +256,9 @@ code {
 
 /* --- 引用块 --- */
 blockquote {
-  border-left: 4px solid #6c5ce7;
+  border-left: 4px solid #6c5ce7 !important;
   background: linear-gradient(135deg, rgba(108, 92, 231, 0.03), rgba(162, 155, 254, 0.03));
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 8px 8px 0 !important;
   padding: 1em 1.2em;
   color: $muted-text-color;
-}
-
-/* --- 标签页 --- */
-.taxonomy__count {
-  display: inline-block;
-  min-width: 24px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-  color: #fff;
-  font-size: 0.7em;
-  font-weight: 600;
-  padding: 0 0.5em;
-}
-
-/* --- 平滑滚动 --- */
-html {
-  scroll-behavior: smooth;
-}
-
-/* --- 选中文字颜色 --- */
-::selection {
-  background: rgba(108, 92, 231, 0.2);
-  color: #2d3436;
 }
