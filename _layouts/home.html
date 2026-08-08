@@ -4,35 +4,40 @@ layout: archive
 
 {{ content }}
 
-<div class="author-banner">
-  <div class="author-banner__avatar">
-    <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
-  </div>
-  <div class="author-banner__info">
-    <h2 class="author-banner__name">{{ site.author.name }}</h2>
-    {% if site.author.bio %}<p class="author-banner__bio">{{ site.author.bio }}</p>{% endif %}
-    <div class="author-banner__meta">
-      {% if site.author.location %}<span><i class="fas fa-map-marker-alt"></i> {{ site.author.location }}</span>{% endif %}
-      {% for link in site.author.links %}
-        {% if link.label and link.url %}
-          <span><i class="{{ link.icon | default: 'fas fa-link' }}"></i> <a href="{{ link.url }}" target="_blank">{{ link.label }}</a></span>
-        {% endif %}
-      {% endfor %}
+<section class="home-intro">
+  <div class="author-banner">
+    <div class="author-banner__avatar">
+      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
+    </div>
+    <div class="author-banner__info">
+      <h2 class="author-banner__name">你好，我是 {{ site.author.name }} 👋</h2>
+      {% if site.author.bio %}<p class="author-banner__bio">{{ site.author.bio }}</p>{% endif %}
+      <div class="author-banner__meta">
+        {% if site.author.location %}<span><i class="fas fa-map-marker-alt"></i> {{ site.author.location }}</span>{% endif %}
+        {% if site.author.email %}<span><i class="fas fa-envelope"></i> {{ site.author.email }}</span>{% endif %}
+        {% for link in site.author.links %}
+          {% if link.label and link.url %}
+            <span><i class="{{ link.icon | default: 'fas fa-link' }}"></i> <a href="{{ link.url }}" target="_blank">{{ link.label }}</a></span>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
+</section>
+
+<div class="posts-section">
+  <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+  {% if paginator %}
+    {% assign posts = paginator.posts %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
+
+  {% assign entries_layout = page.entries_layout | default: 'list' %}
+  <div class="entries-{{ entries_layout }}">
+    {% include documents-collection.html entries=posts type=entries_layout %}
+  </div>
+
+  {% include paginator.html %}
 </div>
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html entries=posts type=entries_layout %}
-</div>
-
-{% include paginator.html %}
