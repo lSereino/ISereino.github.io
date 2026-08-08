@@ -1,33 +1,34 @@
 <!-- start custom head snippets -->
 <style>
-/* single文章页全套居中收拢，压缩宽度、吃掉右侧多余空白 */
-.layout--single .page__content,
+/* 锁定文章最外层大容器，左右padding严格相等，根治天生不对称 */
+.layout--single .page__container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding-left: 1.5em !important;
+  padding-right: 1.5em !important;
+  box-sizing: border-box !important;
+}
+/* 内层标题、正文、标签等取消自身左右边距，只依靠外层统一控制边距 */
 .layout--single .page__title,
 .layout--single .page__meta,
+.layout--single .page__content,
 .layout--single .page__share,
 .layout--single .post-pagination {
-  max-width: 1200px !important;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   margin-inline: auto !important;
-  padding-inline: 1.5em !important;
 }
-/* 手机端缩小左右边距 */
-@media screen and (max-width: 768px) {
-  .layout--single .page__content,
-  .layout--single .page__title,
-  .layout--single .page__meta,
-  .layout--single .page__share,
-  .layout--single .post-pagination {
-    padding-inline: 1rem !important;
-  }
-}
-
-/* 关键：干掉侧边栏占位，让整个主容器铺满居中，解决右侧大片空白 */
+/* 彻底关闭侧边栏布局占位，删掉右侧多余预留空白 */
 .layout--single .sidebar {
   display: none !important;
 }
-.layout--single .page__container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* 手机端自动缩小两边边距 */
+@media screen and (max-width: 768px) {
+  .layout--single .page__container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 }
 </style>
 <!-- end custom head snippets -->
