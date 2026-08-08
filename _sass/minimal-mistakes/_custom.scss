@@ -18,7 +18,7 @@ body {
 }
 
 /* ==========================================================================
-   Masthead 修复 - 解决搜索按钮遮挡标题 + 布局优化
+   Masthead 修复 - 搜索按钮不遮挡标题
    ========================================================================== */
 
 .masthead {
@@ -105,7 +105,7 @@ body {
 }
 
 /* ==========================================================================
-   布局修复 - 全宽文章卡片，去掉侧边栏挤压
+   三栏网格布局 - 左栏 / 中栏 / 右栏
    ========================================================================== */
 
 #main {
@@ -114,12 +114,12 @@ body {
   margin-inline: auto !important;
 
   @include breakpoint($large) {
-    padding-inline: 2.5em !important;
+    padding-inline: 2em !important;
   }
 
   @include breakpoint($x-large) {
     max-width: 1400px !important;
-    padding-inline: 3em !important;
+    padding-inline: 2.5em !important;
   }
 }
 
@@ -137,124 +137,353 @@ body {
   display: none !important;
 }
 
-body {
-  --content-width: 100%;
+.home-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr 260px;
+  gap: 1.5em;
+  margin-top: 1em;
+
+  @include breakpoint(max-width $large - 1px) {
+    grid-template-columns: 220px 1fr;
+  }
+
+  @include breakpoint(max-width $medium) {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* ==========================================================================
-   作者 Banner - 首页全宽展示
-   ========================================================================== */
+/* --- 侧边栏通用 --- */
 
-.author-banner {
+.home-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.sidebar-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(108, 92, 231, 0.08);
+  padding: 1.5em;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(108, 92, 231, 0.1);
+  }
+}
+
+.sidebar-card__title {
+  margin: 0 0 1em;
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #2d3436;
+  padding-bottom: 0.6em;
+  border-bottom: 2px solid #f0edff;
   display: flex;
   align-items: center;
-  gap: 2em;
-  padding: 2em 2.5em;
-  margin: 0 0 2em !important;
+  gap: 0.5em;
+
+  i {
+    color: #6c5ce7;
+  }
+}
+
+/* --- 左栏：个人简介 --- */
+
+.author-card {
+  text-align: center;
   background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.25);
+  border: none;
   color: #fff;
-  position: relative;
-  overflow: hidden;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    inset-inline-end: -10%;
-    width: 40%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
-    pointer-events: none;
-  }
-
-  .author-banner__avatar {
-    flex-shrink: 0;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .author-banner__info {
-    flex: 1;
-    min-width: 0;
-    z-index: 1;
-  }
-
-  .author-banner__name {
-    margin: 0 0 0.3em;
-    font-size: 1.8em;
-    font-weight: 700;
+  .sidebar-card__title {
     color: #fff;
-    letter-spacing: 0.5px;
-  }
+    border-bottom-color: rgba(255, 255, 255, 0.3);
 
-  .author-banner__bio {
-    margin: 0 0 0.8em;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95em;
-    line-height: 1.6;
-  }
-
-  .author-banner__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2em;
-    font-size: 0.8em;
-    color: rgba(255, 255, 255, 0.9);
-
-    span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4em;
-
-      a {
-        color: #fff;
-        text-decoration: none;
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
-        transition: border-color 0.25s ease;
-
-        &:hover {
-          border-bottom-color: #fff;
-        }
-      }
-
-      i {
-        color: rgba(255, 255, 255, 0.95);
-      }
-    }
-  }
-
-  @include breakpoint(max-width $small) {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.5em;
-    gap: 1.2em;
-
-    .author-banner__avatar {
-      width: 80px;
-      height: 80px;
-    }
-
-    .author-banner__meta {
-      justify-content: center;
+    i {
+      color: rgba(255, 255, 255, 0.9);
     }
   }
 }
 
+.author-card__avatar {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1em;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.author-card__name {
+  margin: 0 0 0.4em;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #fff;
+}
+
+.author-card__bio {
+  margin: 0 0 0.8em;
+  font-size: 0.82em;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+.author-card__links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8em;
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.9);
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+  }
+
+  a {
+    color: #fff;
+    font-size: 1.1em;
+    opacity: 0.9;
+    transition: opacity 0.25s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/* --- 左栏：最近文章 --- */
+
+.recent-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 0.82em;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      color: #2d3436;
+      text-decoration: none;
+      flex: 1;
+      margin-inline-end: 0.5em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: color 0.25s ease;
+
+      &:hover {
+        color: #6c5ce7;
+      }
+    }
+
+    time {
+      color: #b2bec3;
+      font-size: 0.75em;
+      flex-shrink: 0;
+    }
+  }
+}
+
+/* --- 中栏主内容 --- */
+
+.home-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.featured-carousel {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.2);
+
+  .carousel-item {
+    position: relative;
+    min-height: 220px;
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-placeholder {
+    text-align: center;
+    color: #fff;
+    padding: 2em;
+  }
+
+  .carousel-label {
+    display: inline-block;
+    padding: 0.3em 0.8em;
+    margin-bottom: 1em;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.75em;
+    letter-spacing: 1px;
+  }
+
+  .carousel-title {
+    margin: 0 0 0.6em;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .carousel-link {
+    display: inline-block;
+    padding: 0.5em 1.2em;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff !important;
+    border-radius: 20px;
+    text-decoration: none !important;
+    font-size: 0.85em;
+    transition: background 0.25s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+  }
+}
+
+.posts-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 右栏：推荐月度 --- */
+
+.recommend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6em 0;
+    border-bottom: 1px solid #f5f5f5;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.recommend-month {
+  font-weight: 600;
+  color: #2d3436;
+  font-size: 0.85em;
+}
+
+.recommend-count {
+  color: #6c5ce7;
+  font-size: 0.8em;
+  font-weight: 600;
+  background: rgba(108, 92, 231, 0.1);
+  padding: 0.15em 0.6em;
+  border-radius: 10px;
+}
+
+/* --- 右栏：标签云 --- */
+
+.tag-cloud__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.3em 0.7em;
+  background: #f5f3ff;
+  color: #6c5ce7 !important;
+  border-radius: 12px;
+  text-decoration: none !important;
+  font-size: 0.8em;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #fff !important;
+    transform: translateY(-1px);
+  }
+}
+
+.tag-count {
+  background: rgba(108, 92, 231, 0.2);
+  color: #6c5ce7;
+  font-size: 0.7em;
+  padding: 0 0.4em;
+  border-radius: 8px;
+
+  .tag-item:hover & {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+}
+
+/* --- 右栏：归档 --- */
+
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #f5f5f5;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      color: #2d3436;
+      text-decoration: none;
+      font-size: 0.85em;
+      transition: color 0.25s ease;
+
+      &:hover {
+        color: #6c5ce7;
+      }
+    }
+  }
+}
+
+.archive-count {
+  color: #b2bec3;
+  font-size: 0.8em;
+}
+
 /* ==========================================================================
-   文章卡片 - 全宽条形
+   文章卡片 - 长条式平铺
    ========================================================================== */
 
 .list__item {
@@ -263,11 +492,11 @@ body {
 }
 
 .archive__item {
-  padding: 1.8em 2.2em !important;
+  padding: 1.5em 1.8em !important;
   margin-bottom: 0 !important;
   background: #fff !important;
-  border-radius: 16px !important;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
   border: 1px solid rgba(108, 92, 231, 0.06) !important;
   transition: all 0.3s ease;
   position: relative;
@@ -286,8 +515,8 @@ body {
   }
 
   &:hover {
-    box-shadow: 0 10px 35px rgba(108, 92, 231, 0.15) !important;
-    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(108, 92, 231, 0.15) !important;
+    transform: translateY(-2px);
     border-color: rgba(108, 92, 231, 0.25) !important;
 
     &::before {
@@ -297,9 +526,9 @@ body {
 }
 
 .archive__item-title {
-  font-size: 1.25em !important;
+  font-size: 1.15em !important;
   font-weight: 700;
-  margin-bottom: 0.5em !important;
+  margin-bottom: 0.4em !important;
   line-height: 1.4;
 
   a {
@@ -315,15 +544,15 @@ body {
 
 .archive__item-excerpt {
   color: #636e72;
-  font-size: 0.92em;
-  line-height: 1.75;
-  margin: 0.5em 0 0;
+  font-size: 0.88em;
+  line-height: 1.7;
+  margin: 0.4em 0 0;
 }
 
 .list__item .page__meta {
-  font-size: 0.78em !important;
+  font-size: 0.75em !important;
   color: #b2bec3;
-  margin-bottom: 0.5em !important;
+  margin-bottom: 0.4em !important;
 
   .page__meta-date,
   .page__meta-readtime {
@@ -333,18 +562,6 @@ body {
   i {
     color: #6c5ce7;
   }
-}
-
-/* ==========================================================================
-   首页结构 - 分区布局
-   ========================================================================== */
-
-.home-intro {
-  margin-bottom: 2em;
-}
-
-.posts-section {
-  margin-top: 0;
 }
 
 /* ==========================================================================
@@ -360,7 +577,7 @@ body {
   border-bottom: none;
   padding: 0;
   margin-top: 0 !important;
-  margin-bottom: 1.2em !important;
+  margin-bottom: 1em !important;
   display: block;
   position: relative;
   padding-inline-start: 0.8em;
@@ -379,7 +596,7 @@ body {
 }
 
 /* ==========================================================================
-   标签/分类索引
+   标签/分类页面索引
    ========================================================================== */
 
 .taxonomy__index {
@@ -406,7 +623,6 @@ body {
   }
 }
 
-/* 标签计数徽章 */
 .taxonomy__count {
   display: inline-block;
   min-width: 24px;
@@ -422,7 +638,7 @@ body {
 }
 
 /* ==========================================================================
-   按钮
+   按钮 / 分页
    ========================================================================== */
 
 .btn {
@@ -442,10 +658,6 @@ body {
   }
 }
 
-/* ==========================================================================
-   分页
-   ========================================================================== */
-
 .pagination--pager {
   border-radius: 8px !important;
   box-shadow: 0 2px 8px rgba(108, 92, 231, 0.25);
@@ -458,7 +670,7 @@ body {
 }
 
 /* ==========================================================================
-   页脚
+   页脚 / 面包屑 / 返回顶部
    ========================================================================== */
 
 .page__footer {
@@ -471,10 +683,6 @@ body {
   }
 }
 
-/* ==========================================================================
-   面包屑
-   ========================================================================== */
-
 .breadcrumbs {
   background: #fff;
   padding: 0.6em 1em;
@@ -482,10 +690,6 @@ body {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   margin-bottom: 1em;
 }
-
-/* ==========================================================================
-   返回顶部
-   ========================================================================== */
 
 .back-to-top {
   display: inline-block;
@@ -505,7 +709,7 @@ body {
 }
 
 /* ==========================================================================
-   代码块
+   代码块 / 引用块
    ========================================================================== */
 
 pre,
@@ -521,14 +725,40 @@ code {
   color: #6c5ce7;
 }
 
-/* ==========================================================================
-   引用块
-   ========================================================================== */
-
 blockquote {
   border-left: 4px solid #6c5ce7 !important;
   background: linear-gradient(135deg, rgba(108, 92, 231, 0.03), rgba(162, 155, 254, 0.03));
   border-radius: 0 8px 8px 0 !important;
   padding: 1em 1.2em;
   color: $muted-text-color;
+}
+
+/* ==========================================================================
+   响应式适配
+   ========================================================================== */
+
+@include breakpoint(max-width $large - 1px) {
+  .home-sidebar--right {
+    display: none;
+  }
+}
+
+@include breakpoint(max-width $medium) {
+  .home-sidebar--left {
+    order: 2;
+  }
+
+  .home-main {
+    order: 1;
+  }
+
+  .featured-carousel {
+    .carousel-item {
+      min-height: 180px;
+    }
+
+    .carousel-title {
+      font-size: 1.2em;
+    }
+  }
 }
