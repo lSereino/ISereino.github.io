@@ -1,24 +1,33 @@
 <!-- start custom head snippets -->
-<!-- 文章详情页居中布局优化 -->
 <style>
+/* single文章页全套居中收拢，压缩宽度、吃掉右侧多余空白 */
+.layout--single .page__content,
+.layout--single .page__title,
+.layout--single .page__meta,
+.layout--single .page__share,
+.layout--single .post-pagination {
+  max-width: 1200px !important;
+  margin-inline: auto !important;
+  padding-inline: 1.5em !important;
+}
+/* 手机端缩小左右边距 */
+@media screen and (max-width: 768px) {
   .layout--single .page__content,
   .layout--single .page__title,
   .layout--single .page__meta,
   .layout--single .page__share,
   .layout--single .post-pagination {
-    max-width: 1200px !important;
-    margin-inline: auto !important;
-    padding-inline: 1.5em !important;
+    padding-inline: 1rem !important;
   }
-  /* 手机端自适应边距 */
-  @media screen and (max-width: 768px) {
-    .layout--single .page__content,
-    .layout--single .page__title,
-    .layout--single .page__meta,
-    .layout--single .page__share,
-    .layout--single .post-pagination {
-      padding-inline: 1rem !important;
-    }
-  }
+}
+
+/* 关键：干掉侧边栏占位，让整个主容器铺满居中，解决右侧大片空白 */
+.layout--single .sidebar {
+  display: none !important;
+}
+.layout--single .page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 </style>
 <!-- end custom head snippets -->
