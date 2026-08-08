@@ -29,7 +29,7 @@ body {
   z-index: 20 !important;
 
   .masthead__inner-wrap {
-    padding: 0.6em 2em !important;
+    padding: 0.6em 1.5em !important;
     background: transparent !important;
   }
 
@@ -96,6 +96,8 @@ body {
     flex: 0 0 auto !important;
     background: transparent !important;
     justify-content: flex-start !important;
+    display: flex !important;
+    visibility: visible !important;
 
     li a {
       padding: 0.3em 0.8em !important;
@@ -107,6 +109,10 @@ body {
         color: #6c5ce7 !important;
       }
     }
+  }
+
+  .hidden-links {
+    display: none !important;
   }
 
   .search__toggle {
