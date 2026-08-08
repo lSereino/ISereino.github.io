@@ -1,5 +1,6 @@
 ---
 layout: archive
+author_profile: true
 permalink: /about/
 title: "关于"
 ---
