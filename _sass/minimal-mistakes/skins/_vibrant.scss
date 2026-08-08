@@ -2,7 +2,7 @@
    Vibrant skin - 现代活力主题
    ========================================================================== */
 
-/* Colors */
+/* --- 颜色变量 --- */
 $background-color: #fafafa !default;
 $text-color: #2d3436 !default;
 $muted-text-color: #636e72 !default;
@@ -23,11 +23,33 @@ $masthead-link-color: #2d3436 !default;
 $masthead-link-color-hover: #6c5ce7 !default;
 $navicon-link-color-hover: #dfe6e9 !default;
 
-/* Gradient colors */
-$gradient-start: #6c5ce7 !default;
-$gradient-end: #a29bfe !default;
+/* --- 字体大小（强制覆盖，必须在 _variables.scss 之前设置） --- */
+$doc-font-size: 14px;
+$doc-font-size-medium: 15.75px;
+$doc-font-size-large: 17.5px;
+$doc-font-size-x-large: 19.25px;
 
-/* vibrant syntax highlighting (base16) */
+$type-size-1: 2em;
+$type-size-2: 1.7em;
+$type-size-3: 1.4em;
+$type-size-4: 1.15em;
+$type-size-5: 0.95em;
+$type-size-6: 0.8em;
+$type-size-7: 0.72em;
+$type-size-8: 0.65em;
+
+$h-size-1: 1.4em;
+$h-size-2: 1.2em;
+$h-size-3: 1.1em;
+$h-size-4: 1.05em;
+$h-size-5: 1.02em;
+$h-size-6: 0.98em;
+
+/* --- 渐变辅助变量 --- */
+$gradient-start: #6c5ce7;
+$gradient-end: #a29bfe;
+
+/* --- 代码高亮配色 --- */
 $base00: #2d3436 !default;
 $base01: #353b48 !default;
 $base02: #485460 !default;
@@ -45,26 +67,280 @@ $base0d: #a29bfe !default;
 $base0e: #fd79a8 !default;
 $base0f: #fab1a0 !default;
 
-/* Author profile social icons */
+/* ==========================================================================
+   UI 美化样式
+   ========================================================================== */
+
+/* --- 平滑滚动 + 字体渲染 --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(108, 92, 231, 0.2);
+  color: #2d3436;
+}
+
+/* --- Masthead 渐变导航栏 --- */
+.masthead {
+  background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+  border-bottom: none;
+  box-shadow: 0 2px 10px rgba(108, 92, 231, 0.3);
+
+  .site-title,
+  .site-subtitle,
+  .masthead__menu-item a {
+    color: #fff !important;
+  }
+
+  .masthead__menu-item a:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .navicon {
+    color: #fff !important;
+  }
+}
+
+/* --- 侧边栏美化 --- */
+.sidebar {
+  .author__avatar img {
+    border: 3px solid #6c5ce7;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    }
+  }
+
+  .author__name {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .author__bio {
+    color: $muted-text-color;
+    font-size: 0.85em;
+    line-height: 1.6;
+  }
+
+  .author__urls a {
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    padding: 4px 8px;
+
+    &:hover {
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(162, 155, 254, 0.1));
+      transform: translateX(3px);
+    }
+  }
+}
+
+/* --- 文章卡片 --- */
+.archive__item {
+  padding: 1.2em 1.4em;
+  margin-bottom: 1.2em;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(108, 92, 231, 0.08);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 30px rgba(108, 92, 231, 0.12);
+    transform: translateY(-2px);
+    border-color: rgba(108, 92, 231, 0.25);
+  }
+}
+
+.archive__item-title {
+  font-size: 1.05em;
+  font-weight: 600;
+
+  a {
+    background: linear-gradient(135deg, #2d3436, #636e72);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+}
+
+.archive__item-excerpt {
+  color: $muted-text-color;
+  line-height: 1.7;
+}
+
+/* --- 归档副标题 --- */
+.archive__subtitle {
+  font-size: 0.9em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: 2px solid #dfe6e9;
+  padding-bottom: 0.4em;
+}
+
+/* --- 标签/分类索引 --- */
+.taxonomy__index {
+  gap: 0.6em;
+
+  a {
+    padding: 0.5em 0.8em;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #dfe6e9;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+      color: #fff !important;
+      border-color: transparent;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+/* --- 标签计数徽章 --- */
+.taxonomy__count {
+  display: inline-block;
+  min-width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: 600;
+  padding: 0 0.5em;
+}
+
+/* --- 按钮 --- */
+.btn {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+
+  &--primary {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    border: none;
+    box-shadow: 0 2px 8px rgba(108, 92, 231, 0.3);
+
+    &:hover {
+      box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+/* --- 分页 --- */
+.pagination--pager {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(108, 92, 231, 0.25);
+  transition: all 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+    transform: translateY(-1px);
+  }
+}
+
+/* --- 页脚 --- */
+.page__footer {
+  background: linear-gradient(135deg, #2d3436 0%, #353b48 100%);
+  color: #dfe6e9;
+  padding: 2em 0;
+
+  a {
+    color: #a29bfe;
+  }
+}
+
+/* --- 面包屑 --- */
+.breadcrumbs {
+  background: #fff;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  margin-bottom: 1em;
+}
+
+/* --- 返回顶部 --- */
+.back-to-top {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  margin-top: 1em;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  color: #fff !important;
+  font-size: 0.7em;
+  text-transform: none;
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.4);
+  }
+}
+
+/* --- 代码块 --- */
+pre,
+code {
+  border-radius: 8px;
+  font-size: 0.85em;
+}
+
+:not(pre) > code {
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background: rgba(108, 92, 231, 0.08);
+  color: #6c5ce7;
+}
+
+/* --- 引用块 --- */
+blockquote {
+  border-left: 4px solid #6c5ce7;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.03), rgba(162, 155, 254, 0.03));
+  border-radius: 0 8px 8px 0;
+  padding: 1em 1.2em;
+  color: $muted-text-color;
+}
+
+/* --- 搜索框 --- */
+.ais-search-box .ais-search-box--input {
+  background-color: $form-background-color;
+}
+
+/* --- 作者资料社交图标 --- */
 .author__urls.social-icons i,
 .author__urls.social-icons .svg-inline--fa,
 .page__footer-follow .social-icons i,
 .page__footer-follow .social-icons .svg-inline--fa {
   color: inherit;
-}
-
-/* Pagination */
-.pagination--pager {
-  color: #fff;
-  background-color: $primary-color;
-  border-color: transparent;
-
-  &:visited {
-    color: #fff;
-  }
-}
-
-/* Search box */
-.ais-search-box .ais-search-box--input {
-  background-color: $form-background-color;
 }
