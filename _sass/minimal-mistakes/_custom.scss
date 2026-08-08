@@ -19,7 +19,7 @@ body {
 }
 
 /* ==========================================================================
-   Masthead - 现代化导航设计
+   Masthead - 左Logo / 中导航 / 右搜索
    ========================================================================== */
 
 .masthead {
@@ -37,20 +37,31 @@ body {
     background: transparent !important;
   }
 
+  .greedy-nav {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0 !important;
+    background: transparent !important;
+  }
+
+  .site-logo {
+    flex-shrink: 0 !important;
+    margin-inline-end: 0.5em !important;
+  }
+
   .site-logo img {
     max-height: 32px !important;
     border-radius: 6px;
   }
 
   .site-title {
-    position: relative !important;
-    z-index: 10 !important;
-    margin-inline-end: 1em !important;
     flex-shrink: 0 !important;
-    white-space: nowrap;
     font-size: 1em !important;
     font-weight: 700 !important;
     color: #2d3436 !important;
+    margin-inline-end: 0 !important;
+    white-space: nowrap;
 
     a {
       color: #2d3436 !important;
@@ -62,45 +73,26 @@ body {
     display: none !important;
   }
 
-  .masthead__menu-item {
-    a {
+  .visible-links {
+    flex: 1 !important;
+    display: flex !important;
+    background: transparent !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+
+    li {
+      display: block !important;
+    }
+
+    li a {
       color: #636e72 !important;
       font-size: 0.88em !important;
       font-weight: 500;
-      position: relative;
-      padding: 0.3em 0 !important;
-      margin-inline: 0.8em !important;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: #6c5ce7 !important;
-      }
-    }
-
-    &--lg a {
-      padding-inline: 0 !important;
-    }
-  }
-
-  .navicon {
-    color: #636e72 !important;
-  }
-
-  .greedy-nav {
-    align-items: center !important;
-    gap: 0 !important;
-    background: transparent !important;
-  }
-
-  .visible-links {
-    flex: 0 0 auto !important;
-    background: transparent !important;
-    justify-content: flex-start !important;
-    display: flex !important;
-    visibility: visible !important;
-
-    li a {
       padding: 0.3em 0.8em !important;
+      margin: 0 0.3em !important;
       border-radius: 6px;
       transition: all 0.2s ease;
 
@@ -116,8 +108,7 @@ body {
   }
 
   .search__toggle {
-    position: relative !important;
-    z-index: 30 !important;
+    flex-shrink: 0 !important;
     margin-inline-start: auto !important;
     color: #636e72 !important;
     background: #f5f6fa !important;
@@ -127,7 +118,6 @@ body {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    flex-shrink: 0 !important;
     transition: all 0.25s ease;
     border: 1px solid transparent !important;
 
@@ -143,7 +133,12 @@ body {
   }
 
   .greedy-nav__toggle {
+    flex-shrink: 0 !important;
     margin-inline-start: 0.5em !important;
+    color: #636e72 !important;
+  }
+
+  .navicon {
     color: #636e72 !important;
   }
 }
